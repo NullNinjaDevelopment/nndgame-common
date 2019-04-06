@@ -1,0 +1,45 @@
+{
+  "name": "nndgame-common",
+  "version": "1.0.0",
+  "description": "React game common components",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist coverage node_modules",
+    "format": "tslint --fix --config ./tslint.json --project ./",
+    "lint": "tslint --project ./",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NullNinjaDevelopment/nndgame-common.git"
+  },
+  "author": "Null Ninja Development",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NullNinjaDevelopment/nndgame-common/issues"
+  },
+  "homepage": "https://github.com/NullNinjaDevelopment/nndgame-common#readme",
+  "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.12",
+    "@types/react-dom": "^16.8.3",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
+    "husky": "^1.3.1",
+    "jest": "^24.7.1",
+    "prettier": "1.16.4",
+    "pretty-quick": "^1.10.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "ts-jest": "^24.0.1",
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.4.1"
+  }
+}

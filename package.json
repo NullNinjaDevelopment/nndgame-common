@@ -4,11 +4,17 @@
   "description": "React game common components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist coverage node_modules",
     "format": "tslint --fix --config ./tslint.json --project ./",
     "lint": "tslint --project ./",
+    "prepublishOnly": "npm run build",
+    "postpublish": "rm -rf ./dist",
     "test": "jest"
   },
   "repository": {

@@ -1,4 +1,4 @@
-import { Point } from "./geometry/Point";
-import { TileMap } from "./tiles/TileMap";
+import * as geometry from "./geometry";
+import * as tiles from "./tiles";
 
-export { Point, TileMap };
+export { geometry, tiles };

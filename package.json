@@ -14,7 +14,9 @@
     "format": "tslint --fix --config ./tslint.json --project ./",
     "lint": "tslint --project ./",
     "prepublishOnly": "npm run build",
+    "preversion": "npm test && npm run lint",
     "postpublish": "rm -rf ./dist",
+    "postversion": "git push origin && git push origin --tags",
     "test": "jest"
   },
   "repository": {

@@ -1,4 +1,4 @@
-import * as geometry from "./geometry";
-import * as tiles from "./tiles";
+import * as Geometry from "./geometry";
+import * as Tiles from "./tiles";
 
-export { geometry, tiles };
+export { Geometry, Tiles };

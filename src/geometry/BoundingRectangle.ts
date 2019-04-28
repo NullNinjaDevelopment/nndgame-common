@@ -16,8 +16,8 @@ export class BoundingRectangle {
     this.min = min;
     this.max = max;
     this.dimensions = new Dimensions(
-      this.max.x - this.min.x,
-      this.max.y - this.min.y
+      this.max.x - this.min.x + 1,
+      this.max.y - this.min.y + 1
     );
   }
 
@@ -46,14 +46,24 @@ export class BoundingRectangle {
 export function calculateBoundingRectangle(
   focalPoint: Point,
   dimensions: Dimensions
-) {
-  // Use approximate dimensions (via Math.floor) skewed upward so that
-  // dimensions with even values will have the focal point at the lower
-  // of the two center-most values
-  const approxHalfWidth = Math.floor(dimensions.width * 0.5 + 0.5);
-  const approxHalfHeight = Math.floor(dimensions.height * 0.5 + 0.5);
-  return new BoundingRectangle(
-    new Point(focalPoint.x - approxHalfWidth, focalPoint.y - approxHalfHeight),
-    new Point(focalPoint.x + approxHalfWidth, focalPoint.y + approxHalfHeight)
-  );
+): BoundingRectangle {
+  const minX =
+    focalPoint.x -
+    Math.floor(dimensions.width * 0.5) +
+    (isEven(dimensions.width) ? 1 : 0); // skew min upward by 1 on even widths
+  const minY =
+    focalPoint.y -
+    Math.floor(dimensions.height * 0.5) +
+    (isEven(dimensions.height) ? 1 : 0); // skew min upward by 1 on even heights
+  const maxX = focalPoint.x + Math.floor(dimensions.width * 0.5);
+  const maxY = focalPoint.y + Math.floor(dimensions.height * 0.5);
+  return new BoundingRectangle(new Point(minX, minY), new Point(maxX, maxY));
+}
+
+/**
+ * Check the parity of a number to see if it is even
+ * @param num the number to check for parity
+ */
+function isEven(num: number): boolean {
+  return num % 2 === 0;
 }
